@@ -189,7 +189,7 @@ def generate_list_item(element, element_type):
     elif element.get('type') == 'video' and element.get('status').get('label') == 'Upcoming':
         info_labels['premiered'] = element.get('status').get('start_time')
         from time import timezone
-        list_item.setPath('/notify/' + localize(30024), localize(30025), element.get('event_date') + ' (GMT+' + str(timezone / 3600 * -1))
+        list_item.setPath('/notify/' + localize(30024) + localize(30025) + element.get('event_date', 'Today') + ' (GMT+' + str(timezone / 3600 * -1))
     elif element_type == COLLECTION:
         list_item.setPath(plugin.url_for(browse_collection, uid=uid))
     elif element_type == PRODUCT:
